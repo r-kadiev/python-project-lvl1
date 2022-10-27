@@ -6,7 +6,8 @@ answer_yes = 'yes'
 answer_no = 'no'
 
 
-def main():
+def even():
+
     user_greeting
     print('Answer "yes" if the number is even, otherwise answer "no".')
     count = 0
@@ -43,6 +44,10 @@ def main():
                       f" Correct answer was '{answer}'.")
                 print(f"Let's try again, {user_greeting.name}!")
                 break
+
+
+def main():
+    even()
 
 
 if __name__ == '__main__':

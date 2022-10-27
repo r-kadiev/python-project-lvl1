@@ -7,7 +7,7 @@ from brain_games.scripts import user_greeting
 OPERATIONS = [("+", add), ("-", sub), ("*", mul)]
 
 
-def main():
+def calc():
     user_greeting
     rules = "What is the result of the expression?"
     print(rules)
@@ -26,13 +26,17 @@ def main():
             print('Correct!')
             count = count + 1
 
-            if count == 2:
+            if count == 3:
                 print(f'Congratulations, {user_greeting.name}!')
                 break
         else:
             print(f"'{user_answer}' is wrong answer ;(."
                   f" Correct answer was '{str(correct)}'.")
             break
+
+
+def main():
+    calc()
 
 
 if __name__ == '__main__':
