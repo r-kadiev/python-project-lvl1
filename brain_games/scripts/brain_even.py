@@ -1,33 +1,49 @@
 import prompt
 import random
+from brain_games.scripts import user_greeting
+
+answer_yes = 'yes'
+answer_no = 'no'
 
 
 def main():
-    print('Welcome to the Brain Games!')
-    name = prompt.string('May I have your name? ')
-    print(f'Hello, {name}!')
-
+    user_greeting
     print('Answer "yes" if the number is even, otherwise answer "no".')
     count = 0
-    while count < 3:
-        a = random.randrange(10000)
-        print(f'Question: {int(a)}')
-        s = prompt.string('Your answer: ')
-        if (a % 2 == 0 and s == 'yes') or (a % 2 != 0 and s == 'no'):
-            print('Correct!')
-            count = count + 1
-            if count == 3:
-                print(f'Congratulations, {name}!')
 
-        elif (a % 2 == 0 and s == 'no') or (a % 2 != 0 and s == 'yes'):
-            print(f"'{s} 'is wrong answer ;(. Correct answer was 'no'.")
-            print(f"Let's try again, {name}!")
+    while count < 3:
+        question = random.randrange(100)
+        print(f'Question: {int(question)}')
+        s = prompt.string('Your answer: ')
+        count = count + 1
+
+        if count == 3:
+            print('Correct!')
+            print(f'Congratulations, {user_greeting.name}!')
             break
-        else:
-            break
+
+        if question % 2 == 0:
+            answer = 'yes'
+
+            if s == answer_yes:
+                print('Correct!')
+            else:
+                print(f"'{s}' is wrong answer ;(. "
+                      f"Correct answer was '{answer}'.")
+                print(f"Let's try again, {user_greeting.name}!")
+                break
+
+        if question % 2 != 0:
+            answer = 'no'
+
+            if s == answer_no:
+                print('Correct!')
+            else:
+                print(f"'{s}' is wrong answer ;(."
+                      f" Correct answer was '{answer}'.")
+                print(f"Let's try again, {user_greeting.name}!")
+                break
 
 
 if __name__ == '__main__':
     main()
-
-
