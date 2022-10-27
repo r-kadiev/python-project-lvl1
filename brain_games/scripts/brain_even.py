@@ -2,11 +2,10 @@ import prompt
 import random
 
 
-def parity_check():
-    global s
+def main():
     print('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
-    print(f'Hello, {name}')
+    print(f'Hello, {name}!')
 
     print('Answer "yes" if the number is even, otherwise answer "no".')
     count = 0
@@ -18,17 +17,17 @@ def parity_check():
             print('Correct!')
             count = count + 1
             if count == 3:
-                print(f'Congratulations, {name}')
+                print(f'Congratulations, {name}!')
 
         elif (a % 2 == 0 and s == 'no') or (a % 2 != 0 and s == 'yes'):
-            print(f" '{s}'  is wrong answer ;(. Correct answer was 'no'.")
-            print(f"Let's try again, {name}")
+            print(f"'{s} 'is wrong answer ;(. Correct answer was 'no'.")
+            print(f"Let's try again, {name}!")
             break
-        elif s!='no' or s!='yes':
-            print('Вы ввели неправильный формат ответа! ')
+        else:
             break
 
 
-parity_check()
+if __name__ == '__main__':
+    main()
 
 
