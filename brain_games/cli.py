@@ -14,4 +14,4 @@ def run(game_intro=""):
 def get_answer(question):
     print(f"Question: {question}")
     answer = prompt.string("Your answer: ")
-    return answer
+    return print(answer)
