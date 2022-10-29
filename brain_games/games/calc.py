@@ -1,19 +1,19 @@
-
-from random import randint, choice
-from operator import add, sub, mul
-
-RULES = "What is the result of the expression?"
-OPERATIONS = [("+", add), ("-", sub), ("*", mul)]
+import random
+import operator
 
 
-def run_game():
-    a = randint(1, 100)
-    b = randint(1, 100)
+GAME_TASK = 'What is the result of the expression?'
 
-    operator, func = choice(OPERATIONS)
 
-    question = f"{a} {operator} {b}"
-
-    correct = func(a, b)
-
-    return question, str(correct)
+def game_task():
+    number1 = random.randint(1, 30)
+    number2 = random.randint(1, 30)
+    operators = {
+        '+': operator.add,
+        '-': operator.sub,
+        '*': operator.mul
+    }
+    operator_symb = random.choice(list(operators))
+    question = f"{number1} {operator_symb} {number2}"
+    correct_answer = str(operators.get(operator_symb)(number1, number2))
+    return question, correct_answer

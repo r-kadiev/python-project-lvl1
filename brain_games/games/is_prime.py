@@ -1,23 +1,22 @@
-from random import randint
-import math
-
-RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+import random
 
 
-def is_prime(num):
-    mx = math.sqrt(num)
-
-    i = 2
-    while i <= mx:
-        if num % i == 0:
-            return False
-        else:
-            i += 1
-    return True
+GAME_TASK = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def run_game():
-    question = randint(0, 100)
-    prime = 'yes' if is_prime(question) else 'no'
+def is_prime(digit):
+    for i in range(2, int(digit / 2 + 1)):
+        if digit % i == 0:
+            return 'no'
+    return 'yes'
 
-    return question, prime
+
+def game_task():
+    digit = random.randint(2, 100)
+    question = digit
+    correct_answer = str(is_prime(digit))
+    return question, correct_answer
+
+
+if __name__ == '__main__':
+    game_task()

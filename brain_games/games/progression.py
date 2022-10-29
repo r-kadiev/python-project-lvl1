@@ -1,26 +1,19 @@
-
-from random import randint
-
-RULES = "What number is missing in the progression?"
+import random
 
 
-def generate_progression():
-    step = randint(1, 10)
-    start = randint(1, 100)
-    stop = start + (step * 10)
-
-    progression = [str(x) for x in range(start, stop, step)]
-
-    return progression
+GAME_TASK = 'What number is missing in the progression?'
 
 
-def run_game():
-    progression = generate_progression()
+def game_task():
+    start_digit = random.randint(1, 20)
+    count_digits = random.randint(5, 10)
+    digits = [start_digit * i for i in range(1, count_digits + 1)]
+    missed_index = random.randint(0, len(digits) - 1)
+    correct_answer = str(digits[missed_index])
+    digits[missed_index] = '..'
+    question = ' '.join(str(digit) for digit in digits)
+    return question, correct_answer
 
-    skip = randint(0, 9)
-    correct = progression[skip]
 
-    progression[skip] = ".."
-    question = " ".join(progression)
-
-    return (question, correct)
+if __name__ == '__main__':
+    game_task()
